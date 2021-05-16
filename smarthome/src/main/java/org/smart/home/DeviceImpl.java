@@ -2,27 +2,22 @@ package org.smart.home;
 
 import lombok.SneakyThrows;
 import org.smart.home.data.CommandStatus;
-import org.smart.home.enums.ExecutionStatus;
-import org.smart.home.factory.CommandFactory;
-import org.smart.home.interfaces.Appliance;
-import org.smart.home.interfaces.Command;
-import org.smart.home.interfaces.Device;
-import org.smart.home.interfaces.Home;
+import org.smart.home.textprocessor.RegexTextProcessor;
+import org.smart.home.interfaces.*;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DeviceImpl implements Device {
     private final String name;
     private final String activator;
     private final Map<String, Appliance> appliances = new HashMap<>();
     private final Home home;
-    private final Map<Pattern, Command> patterns = new HashMap<>();
+    private final TextProcessor textProcessor = new RegexTextProcessor();
 
     public DeviceImpl(String name, String activator, Home home) {
         this.name = name;
-        this.activator = activator.substring(13).toLowerCase();
+        this.activator = activator.substring("activated by ".length()).toLowerCase();
         this.home = home;
     }
 
@@ -33,18 +28,14 @@ public class DeviceImpl implements Device {
             return false;
         }
         String applianceCommand = rawCommand.substring(activator.length() + 1);
-        Command command = CommandFactory.create(applianceCommand, appliances);
+        Command command = textProcessor.parse(applianceCommand, appliances);
 
         if (command == null) {
             System.out.println("Sorry, no appliance support this command [" + rawCommand + "]");
             return false;
         } else {
             CommandStatus status = command.execute();
-            if (status.getStatus().equals(ExecutionStatus.SUCCESS)) {
-                System.out.println(status.getMessage());
-            } else {
-                System.out.println(status.getMessage());
-            }
+            System.out.println(status.getStatus() + " : " + status.getMessage());
             return true;
         }
     }
