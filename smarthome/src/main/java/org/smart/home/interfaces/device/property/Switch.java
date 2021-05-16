@@ -6,6 +6,6 @@ import org.smart.home.interfaces.Command;
 
 import java.util.regex.Pattern;
 
-public interface Switch {
+public interface Switch extends ApplianceType{
     CommandStatus updatePower(Power status);
 }

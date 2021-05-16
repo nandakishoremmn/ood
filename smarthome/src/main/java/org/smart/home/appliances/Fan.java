@@ -1,6 +1,7 @@
 package org.smart.home.appliances;
 
 import lombok.ToString;
+import org.smart.home.commands.BrightnessCommand;
 import org.smart.home.interfaces.Command;
 import org.smart.home.commands.FanSpeedCommand;
 import org.smart.home.commands.SwitchCommand;
@@ -11,34 +12,20 @@ import org.smart.home.interfaces.Appliance;
 import org.smart.home.interfaces.device.property.FanSpeed;
 import org.smart.home.interfaces.device.property.Switch;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 @ToString
 public class Fan implements Appliance, FanSpeed, Switch {
     private Integer speed = 1;
-    private String name;
+    private final String name;
     private Power power = Power.OFF;
-    @ToString.Exclude
-    private Map<Pattern, Command> commandMap;
 
     public Fan(String name) {
         this.name = name;
-        this.commandMap = new HashMap<>();
-        commandMap.put(
-                Pattern.compile("turn (?<power>on|off) " + name, Pattern.CASE_INSENSITIVE),
-                new SwitchCommand().setAppliance(this)
-        );
-        commandMap.put(
-                Pattern.compile("set " + name + " speed to (?<speed>\\d)", Pattern.CASE_INSENSITIVE),
-                new FanSpeedCommand().setAppliance(this)
-        );
-    }
-
-    @Override
-    public Map<Pattern, Command> getCommandMap() {
-        return commandMap;
     }
 
     @Override
