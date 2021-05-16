@@ -23,20 +23,18 @@ public class DeviceImpl implements Device {
 
     @SneakyThrows
     @Override
-    public boolean sendCommand(String rawCommand) {
+    public void sendCommand(String rawCommand) {
         if (!rawCommand.startsWith(activator)) {
-            return false;
+            return;
         }
         String applianceCommand = rawCommand.substring(activator.length() + 1);
         Command command = textProcessor.parse(applianceCommand, appliances);
 
         if (command == null) {
             System.out.println("Sorry, no appliance support this command [" + rawCommand + "]");
-            return false;
         } else {
             CommandStatus status = command.execute();
             System.out.println(status.getStatus() + " : " + status.getMessage());
-            return true;
         }
     }
 
