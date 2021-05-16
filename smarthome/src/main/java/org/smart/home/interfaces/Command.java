@@ -1,6 +1,7 @@
 package org.smart.home.interfaces;
 
 import org.smart.home.data.CommandStatus;
+import org.smart.home.interfaces.appliance.property.ApplianceType;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
@@ -11,7 +12,4 @@ public interface Command {
     CommandStatus execute();
     Command init(Matcher matcher);
     Command setAppliance(Appliance appliance);
-    static Pattern getPattern(List<String> names) {
-        throw new NotImplementedException();
-    }
 }

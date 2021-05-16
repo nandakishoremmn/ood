@@ -1,4 +1,4 @@
-package org.smart.home.interfaces.device.property;
+package org.smart.home.interfaces.appliance.property;
 
 import org.smart.home.data.CommandStatus;
 

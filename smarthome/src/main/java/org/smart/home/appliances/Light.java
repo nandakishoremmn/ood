@@ -1,18 +1,12 @@
 package org.smart.home.appliances;
 
 import lombok.ToString;
-import org.smart.home.commands.BrightnessCommand;
-import org.smart.home.interfaces.Command;
-import org.smart.home.commands.SwitchCommand;
 import org.smart.home.data.CommandStatus;
 import org.smart.home.enums.ExecutionStatus;
 import org.smart.home.enums.Power;
 import org.smart.home.interfaces.Appliance;
-import org.smart.home.interfaces.device.property.Brightness;
-import org.smart.home.interfaces.device.property.Switch;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.smart.home.interfaces.appliance.property.Brightness;
+import org.smart.home.interfaces.appliance.property.Switch;
 
 @ToString
 public class Light implements Appliance, Switch, Brightness {

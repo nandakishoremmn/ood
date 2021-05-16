@@ -4,12 +4,9 @@ import org.smart.home.data.CommandStatus;
 import org.smart.home.enums.ExecutionStatus;
 import org.smart.home.interfaces.Appliance;
 import org.smart.home.interfaces.Command;
-import org.smart.home.interfaces.device.property.Brightness;
-import org.smart.home.interfaces.device.property.FanSpeed;
+import org.smart.home.interfaces.appliance.property.FanSpeed;
 
-import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class FanSpeedCommand implements Command {
     private Integer speed;
@@ -20,7 +17,7 @@ public class FanSpeedCommand implements Command {
         if(appliance instanceof FanSpeed) {
             return ((FanSpeed) appliance).updateFanSpeed(speed);
         } else {
-            return new CommandStatus(ExecutionStatus.FAILED, appliance.getName() + " does not support brightnes update");
+            return new CommandStatus(ExecutionStatus.FAILED, appliance.getName() + " does not support fan speed update");
         }    }
 
     @Override

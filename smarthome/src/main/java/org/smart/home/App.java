@@ -27,6 +27,7 @@ public class App {
         home.sendCommand("ok google set hall fan speed to 7");
         home.sendCommand("ok google turn on living room light");
         home.sendCommand("ok google set living room light brightness to 3");
+        home.sendCommand("ok google set living room light speed to 3");
 
         home.printDevice("Google Home");
         home.printDevice("Amazon Echo");
