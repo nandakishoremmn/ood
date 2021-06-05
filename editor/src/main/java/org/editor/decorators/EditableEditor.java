@@ -2,7 +2,6 @@ package org.editor.decorators;
 
 import org.editor.interfaces.IEditor;
 import org.editor.exceptions.InvalidLineReference;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,19 +13,19 @@ public class EditableEditor implements IEditor {
     final private List<String> data = new ArrayList<>();
 
     public void redo() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public void undo() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public void paste(int lineNo) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public void copy(Integer start, Integer end) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public void insert(int lineNo, List<String> lines) {
@@ -72,6 +71,6 @@ public class EditableEditor implements IEditor {
 
     @Override
     public void display(Integer start, Integer end) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 }
