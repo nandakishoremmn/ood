@@ -2,14 +2,14 @@ package org.editor;
 
 import org.editor.decorators.ClipboardDecorator;
 import org.editor.decorators.DisplayDecorator;
-import org.editor.decorators.EditableEditor;
+import org.editor.decorators.BasicEditor;
 import org.editor.decorators.UndoableDecorator;
 import org.editor.interfaces.IEditor;
 import org.editor.ui.EditorUI;
 
 public class Driver {
     public static void main(String[] args) {
-        IEditor editor = new EditableEditor();
+        IEditor editor = new BasicEditor();
         editor = new DisplayDecorator(editor);
         editor = new UndoableDecorator(editor);
         editor = new ClipboardDecorator(editor);
