@@ -5,7 +5,7 @@ import org.rubix.iface.Rubix;
 
 public class App {
     public static void main(String[] args) {
-        Rubix rubix = new RubixImpl(3);
+        Rubix rubix = new RubixImpl(4);
         rubix.rotateCube(Axis.Y, 2);
 
         rubix.display();

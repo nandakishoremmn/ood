@@ -22,38 +22,38 @@ public class RubixGridDisplay implements RubixDisplay {
                         case Y:
                             p = i;
                             q = j;
-                            y = 3;
+                            y = size;
                             x = 0;
                             break;
                         case X_MINUS:
                             p = size - i - 1;
                             q = j;
                             y = 0;
-                            x = 3;
+                            x = size;
                             break;
                         case Z:
                             p = j;
                             q = size - i - 1;
-                            y = 3;
-                            x = 3;
+                            y = size;
+                            x = size;
                             break;
                         case X:
                             p = size - i - 1;
                             q = size - j - 1;
-                            y = 6;
-                            x = 3;
+                            y = 2*size;
+                            x = size;
                             break;
                         case Z_MINUS:
                             p = size - j - 1;
                             q = size - i - 1;
-                            y = 9;
-                            x = 3;
+                            y = 3*size;
+                            x = size;
                             break;
                         default:
                             p = size - i - 1;
                             q = j;
-                            y = 3;
-                            x = 6;
+                            y = size;
+                            x = 2*size;
                             break;
                     }
                     grid[i + x][j + y] = cells.get(new Location(axis, p, q)).getColor();
