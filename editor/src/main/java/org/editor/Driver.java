@@ -2,6 +2,7 @@ package org.editor;
 
 import org.editor.decorators.ClipboardDecorator;
 import org.editor.decorators.DisplayDecorator;
+import org.editor.decorators.EditableEditor;
 import org.editor.decorators.UndoableDecorator;
 import org.editor.interfaces.IEditor;
 import org.editor.ui.EditorUI;

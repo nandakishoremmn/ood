@@ -1,12 +1,9 @@
 package org.editor.ui;
 
-import org.editor.interfaces.IEditor;
 import org.editor.enums.Action;
 import org.editor.exceptions.EditorException;
 import org.editor.exceptions.InvalidCommandException;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import org.editor.interfaces.IEditor;
 
 public class EditorUI {
     final private IEditor editor;

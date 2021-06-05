@@ -1,4 +1,4 @@
-package org.editor;
+package org.editor.decorators;
 
 import org.editor.interfaces.IEditor;
 import org.editor.exceptions.InvalidLineReference;
