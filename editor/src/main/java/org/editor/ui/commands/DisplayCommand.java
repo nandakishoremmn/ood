@@ -7,10 +7,10 @@ public class DisplayCommand implements Command {
     public void execute(String[] splits, IEditor editor) {
         switch (splits.length) {
             case 1:
-                System.out.println(String.join("\n", editor.get(null, null)));
+                editor.display(null, null);
                 break;
             case 2:
-                System.out.println(String.join("\n", editor.get(Integer.parseInt(splits[1]), null)));
+                editor.display(Integer.parseInt(splits[1]), null);
                 break;
         }
     }

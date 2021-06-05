@@ -11,7 +11,7 @@ public enum Action {
     z(new UndoCommand()),
     zz(new RedoCommand());
 
-    Command command;
+    final Command command;
 
     public Command getCommand() {
         return command;

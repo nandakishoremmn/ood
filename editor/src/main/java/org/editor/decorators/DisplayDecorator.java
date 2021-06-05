@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class DisplayDecorator implements IEditor {
-    private List<String> clipboard = new ArrayList<>();
+    private final List<String> clipboard = new ArrayList<>();
 
     final private IEditor editor;
 
@@ -50,9 +50,7 @@ public class DisplayDecorator implements IEditor {
         System.out.println("==================START=================");
         List<String> data = get(start, end);
         int finalStart = start == null ? 0 : start;
-        IntStream.range(0, data.size()).forEach(i -> {
-            System.out.println(String.format("%d:\t%s", finalStart + i + 1, data.get(i)));
-        });
+        IntStream.range(0, data.size()).forEach(i -> System.out.printf("%d:\t%s%n", finalStart + i + 1, data.get(i)));
         System.out.println("===================END==================");
     }
 }
