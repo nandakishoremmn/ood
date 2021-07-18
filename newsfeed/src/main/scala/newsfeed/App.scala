@@ -1,7 +1,7 @@
 package newsfeed
 
 import newsfeed.entities.User
-import newsfeed.exceptions.{NoLoggedInuserException, PostOrCommentNotFound, UserNotFoundException}
+import newsfeed.exceptions.{NoLoggedInUserException, PostOrCommentNotFound, UserNotFoundException}
 import newsfeed.feed.{FeedCreator, FeedCreatorImpl}
 import newsfeed.managers.{PostManager, UserManager}
 
@@ -35,7 +35,7 @@ class App {
         case Some(user) => Success(user)
         case None => Failure(new UserNotFoundException(username))
       }
-      case None => Failure(new NoLoggedInuserException)
+      case None => Failure(new NoLoggedInUserException)
     }
   }
 
