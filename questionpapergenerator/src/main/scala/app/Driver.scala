@@ -1,5 +1,6 @@
 package app
 
+import app.domain.Template
 import app.enums.AttributeValues._
 import app.enums.{difficulty, topic}
 import app.generator.QPGImpl

@@ -2,7 +2,7 @@ package app.generator
 
 import app.enums.AttributeValues.AttributeValue
 import app.manager.QuestionBank
-import app.{Template, domain}
+import app.domain
 import app.domain.{Question, QuestionPaper, Template}
 
 import scala.collection.mutable.ArrayBuffer

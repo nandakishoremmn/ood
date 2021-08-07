@@ -1,7 +1,6 @@
 package app.generator
 
 import app.manager.QuestionBank
-import app.Template
 import app.domain.{QuestionPaper, Template}
 
 import scala.util.Try
